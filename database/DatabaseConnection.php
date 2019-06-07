@@ -52,6 +52,7 @@ class DatabaseConnection{
         try{
             $conexion = $this->getConnection();
             $result = mysqli_query($conexion, $query);
+            mysqli_close($conexion);
         }catch(Exception $ex){
             echo "Ocurrió un error al eliminar el registro";
         }
@@ -63,6 +64,7 @@ class DatabaseConnection{
         try{
             $conexion = $this->getConnection();
             $result = mysqli_query($conexion, $query);
+            mysqli_close($conexion);
         }catch(Exception $ex){
             echo "Ocurrió un error actualizando el registro";
         }
