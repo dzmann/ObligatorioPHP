@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2019 at 04:26 PM
+-- Generation Time: Jun 07, 2019 at 05:34 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 5.6.38
 
@@ -34,7 +34,7 @@ CREATE TABLE `alumnos` (
   `apellidos` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `direccion` varchar(80) COLLATE utf8_spanish_ci NOT NULL,
   `telefono` int(15) NOT NULL,
-  `foto` blob NOT NULL,
+  `foto` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `pin` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -43,7 +43,7 @@ CREATE TABLE `alumnos` (
 --
 
 INSERT INTO `alumnos` (`ci`, `nombres`, `apellidos`, `direccion`, `telefono`, `foto`, `pin`) VALUES
-(5555, 'Alumnillo', 'Zimermann', 'Montevideo', 25412541, 0x756e6120666f746f, 12456);
+(5555, 'Alumnillo', 'Zimermann', 'Montevideo', 25412541, '?PNG\r\n\Z\n\0\0\0\rIHDR\0\0?\0\0?\0\0\0ȍ??\0\0\0tEXtSoftware\0A', 12456);
 
 -- --------------------------------------------------------
 

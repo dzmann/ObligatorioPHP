@@ -39,6 +39,10 @@ class DatabaseConnection{
         try{
             $conexion = $this->getConnection();
             $result = mysqli_query($conexion, $query);
+            if(!$result){
+                echo mysqli_error($conexion);
+            }
+            
             mysqli_close($conexion);
         }catch(Exception $ex){
             echo "Ocurrió un error ejecutando el insert";

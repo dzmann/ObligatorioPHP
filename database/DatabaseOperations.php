@@ -19,7 +19,8 @@ class DatabaseOperations{
                 $result = $this->databaseConnection->dbInsert($query);
                 break;
             case "Alumno":
-                $query = "INSERT INTO ALUMNOS (CI, NOMBRES, APELLIDOS, DIRECCION, TELEFONO, FOTO, PIN) VALUES ($object->ci, '$object->nombre', '$object->apellidos', '$object->direccion', $object->telefono, '$object->foto', $object->pin)";   
+                $image = addslashes($object->foto);
+                $query = "INSERT INTO ALUMNOS (CI, NOMBRES, APELLIDOS, DIRECCION, TELEFONO, FOTO, PIN) VALUES ($object->ci, '$object->nombre', '$object->apellidos', '$object->direccion', $object->telefono, '{$image}', $object->pin)";   
                 $result = $this->databaseConnection->dbInsert($query);
                 break;
             case "Encargado":
@@ -81,14 +82,24 @@ class DatabaseOperations{
 $operation = new DatabaseOperations();
 
 $profe = new Profesor(1234567, "Danillo", "Zimermann", "Montevideo", 1255478);
-$alumno = new Alumno(5555, "Alumnillo", "Zimermann", "Montevideo", 25412541, "una foto", 12456);
+
 $encargado = new Encargado("eemail@email.com", "Pepe", "Una contraseña loca");
 
 
-$operation->insert($encargado);
-//$operation->delete("ENCARGADOS", "nombre='Pepe'");
-$r = $operation->select("ENCARGADOS", "NOMBRE='Pepe'", array("EMAIL", "NOMBRE"));
+$contenidoFoto = file_get_contents("avatar.png");
+$alumno = new Alumno(5555, "Alumnillo", "Zimermann", "Montevideo", 25412541, $contenidoFoto, 12456);
 
-echo $r[1]["EMAIL"];
+if($operation->insert($alumno)){
+    echo "Insert correcto";
+}else{
+    echo "Ocurrió un error al insertar";
+}
+
+//$operation->insert($encargado);
+//$operation->delete("ENCARGADOS", "nombre='Pepe'");
+$r = $operation->select("ALUMNOS", "NOMBRES='Alumnillo'");
+
+
+
 
 ?>
