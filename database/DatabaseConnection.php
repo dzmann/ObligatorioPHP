@@ -80,7 +80,6 @@ class DatabaseConnection{
                 $result[] = $row;
             }    
         }
-
         return $result;
     }
  
