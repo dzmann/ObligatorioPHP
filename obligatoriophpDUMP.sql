@@ -28,6 +28,10 @@ SET time_zone = "+00:00";
 -- Table structure for table `alumnos`
 --
 
+CREATE DATABASE IF NOT EXISTS obligatoriophp;
+
+USE obligatoriophp;
+
 CREATE TABLE `alumnos` (
   `ci` int(10) NOT NULL,
   `nombres` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
