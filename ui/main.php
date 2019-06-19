@@ -1,8 +1,6 @@
-<?php
-require_once ""
-
-?>
-
 <div class="main">
+    <?php
+    require_once "./listados/listado-cursos.php"
 
+    ?>
 </div>
