@@ -1,6 +1,7 @@
 <?php
 
 require_once("../database/DatabaseOperations.php");
+require_once("../controllers/SessionManager.php");
 
 if(isset($_POST["entrar"])){
 
@@ -13,25 +14,22 @@ if(isset($_POST["entrar"])){
     if($rol=="encargado"){
         $result = $dbOperation->select("ENCARGADOS", "EMAIL='$email'", array("EMAIL", "NOMBRE", "CONTRASENIA"));
         if(isset($result[0])){
-            echo "contrasenia: $contrasenia_md5";
             
-            if($result[0]["EMAIL"]==$email && $result[0]["CONTRASENIA"==$contrasenia_md5]){
-                echo "login correcto";
+            
+            if($result[0]["EMAIL"]==$email && $result[0]["CONTRASENIA"]==$contrasenia_md5){
+                $sessionObj = new SessionManager();
+                $sessionObj->createSession($result[0]["NOMBRE"]);
+                echo "Login correcto";
             }else{
-                echo "login incorrecto";
+                header("Location: ../ui/login.php?result=error");
             }
-
         }else{
-            echo "Usuario inválido";
+            header("Location: ../ui/login.php?result=error");
         }
     }
-    
-
-    
-
-
-
 }
+
+
 
 
 

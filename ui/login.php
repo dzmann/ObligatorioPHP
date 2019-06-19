@@ -16,6 +16,13 @@
             <input type="submit" value="Entrar" name="entrar">
         </fieldset>
      </form>
+    <?php
+        if(isset($_GET["result"])){
+            if($_GET["result"]=="error"){
+                echo "<span>Email o contraseña incorrectos.</span>";
+            }
+        }
+    ?>
     
 </body>
 </html>
