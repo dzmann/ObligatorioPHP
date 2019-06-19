@@ -44,7 +44,7 @@ class DatabaseOperations{
         return $result;
     }
 
-    public function select($table, $conditions, $columns=null){
+    public function select($table, $conditions=null, $columns=null){
         $query = "SELECT ";
         $arraySize = sizeof($columns);
         $counter = 0;
@@ -63,7 +63,11 @@ class DatabaseOperations{
         }
 
         $query .= " FROM $table";
-        $query .= "  WHERE $conditions";
+        
+        if($conditions!=null){
+            $query .= "  WHERE $conditions";
+        }
+        
         echo $query."<br>";
         $result = $this->databaseConnection->dbSelect($query);
 
