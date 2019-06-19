@@ -3,23 +3,26 @@
 require_once("../utils/EntitiesClassLoader.php");
 require_once("../database/DatabaseConnection.php");
 
-class DatabaseOperations{
+class DatabaseOperations
+{
 
     private $databaseConnection;
 
-    function __construct(){
+    function __construct()
+    {
         $this->databaseConnection = new DatabaseConnection();
     }
 
-    public function insert($object){
+    public function insert($object)
+    {
         $result = false;
-        switch(get_class($object)){
+        switch (get_class($object)) {
             case "Profesor":
                 $query = "INSERT INTO PROFESORES (CI, NOMBRE, APELLIDO, DIRECCION, TELEFONO) VALUES ($object->ci, '$object->nombre', '$object->apellido', '$object->direccion', $object->telefono)";
                 $result = $this->databaseConnection->dbInsert($query);
                 break;
             case "Alumno":
-                $query = "INSERT INTO ALUMNOS (CI, NOMBRES, APELLIDOS, DIRECCION, TELEFONO, FOTO, PIN) VALUES ($object->ci, '$object->nombre', '$object->apellidos', '$object->direccion', $object->telefono, '$object->foto', $object->pin)";   
+                $query = "INSERT INTO ALUMNOS (CI, NOMBRES, APELLIDOS, DIRECCION, TELEFONO, FOTO, PIN) VALUES ($object->ci, '$object->nombre', '$object->apellidos', '$object->direccion', $object->telefono, '$object->foto', $object->pin)";
                 $result = $this->databaseConnection->dbInsert($query);
                 break;
             case "Encargado":
@@ -39,47 +42,47 @@ class DatabaseOperations{
                 $result = $this->databaseConnection->dbInsert($query);
                 break;
             default:
-                print "ERROR: Objecto desconocido";   
+                print "ERROR: Objecto desconocido";
         }
         return $result;
     }
 
-    public function select($table, $conditions=null, $columns=null){
+    public function select($table, $conditions = null, $columns = null)
+    {
         $query = "SELECT ";
         $arraySize = sizeof($columns);
         $counter = 0;
         $result = null;
 
-        if($columns!=null){
-            foreach ($columns as $col){
-                $query .= $col." ";
-                if($counter + 1 < $arraySize){
+        if ($columns != null) {
+            foreach ($columns as $col) {
+                $query .= $col . " ";
+                if ($counter + 1 < $arraySize) {
                     $query .= ", ";
                 }
                 $counter++;
-            }    
-        }else{
+            }
+        } else {
             $query .= " * ";
         }
 
         $query .= " FROM $table";
-        
-        if($conditions!=null){
+
+        if ($conditions != null) {
             $query .= "  WHERE $conditions";
         }
-        
-        echo $query."<br>";
+
         $result = $this->databaseConnection->dbSelect($query);
 
         return $result;
     }
 
-    public function delete($table, $conditions){
+    public function delete($table, $conditions)
+    {
         $query = "DELETE FROM $table WHERE $conditions";
         $result = $this->databaseConnection->dbDelete($query);
         return $result;
     }
- 
 }
 
 $operation = new DatabaseOperations();
@@ -93,8 +96,3 @@ $operation = new DatabaseOperations();
 }*/
 
 //$r = $operation->select("ALUMNOS", "NOMBRES='Alumnillo'");
-
-
-
-
-?>
