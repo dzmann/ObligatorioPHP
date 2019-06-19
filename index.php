@@ -13,6 +13,10 @@
     <!-- TODO: Landing con los dos perfiles -->
     <?php
 
+    //if hay session -> mandar a main else landing
+
+
+
     include_once "./ui/landing.php";
 
 
