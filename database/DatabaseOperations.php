@@ -50,11 +50,11 @@ class DatabaseOperations
     public function select($table, $conditions = null, $columns = null)
     {
         $query = "SELECT ";
-        $arraySize = sizeof($columns);
         $counter = 0;
         $result = null;
 
         if ($columns != null) {
+            $arraySize = sizeof($columns);
             foreach ($columns as $col) {
                 $query .= $col . " ";
                 if ($counter + 1 < $arraySize) {
