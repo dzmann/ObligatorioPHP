@@ -47,7 +47,9 @@ CREATE TABLE `alumnos` (
 --
 
 INSERT INTO `alumnos` (`ci`, `nombres`, `apellidos`, `direccion`, `telefono`, `foto`, `pin`) VALUES
-(5555, 'Alumnillo', 'Zimermann', 'Montevideo', 25412541, '?PNG\r\n\Z\n\0\0\0\rIHDR\0\0?\0\0?\0\0\0ȍ??\0\0\0tEXtSoftware\0A', 12456);
+(5555, 'Alumnillo', 'Zimermann', 'Montevideo', 25412541, '?PNG\r\n\Z\n\0\0\0\rIHDR\0\0?\0\0?\0\0\0ȍ??\0\0\0tEXtSoftware\0A', 12456),
+(1133557, 'Tommy', 'Araya', 'Soriano 2366', 99965412, '', 123456),
+(78451231, 'Maximilian', 'Schwarzmüller', 'Rio Branco 3000', 92587589, '', 654321);
 
 -- --------------------------------------------------------
 
@@ -61,6 +63,8 @@ CREATE TABLE `cursos` (
   `profesor` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+INSERT INTO `cursos` (`id`, `materia`, `profesor`) VALUES
+(1, 'matematica', 1234567);
 -- --------------------------------------------------------
 
 --
@@ -105,6 +109,10 @@ CREATE TABLE `materias` (
   `carga_horaria` tinyint(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+INSERT INTO `materias` (`nombre`, `contenidos`, `nivel`, `carga_horaria`) VALUES
+('biologia', 'Celulas, aparato respiratorio, disección de lombrices', 'Primero', 16),
+('fisica', 'Leyes de newton, principios de la termodinamica', 'Segundo', 10),
+('Matematica', 'Trigonometría, Funciones elementales, Números complejos', 'Tercero', 30);
 -- --------------------------------------------------------
 
 --
@@ -124,7 +132,10 @@ CREATE TABLE `profesores` (
 --
 
 INSERT INTO `profesores` (`ci`, `nombre`, `apellido`, `direccion`, `telefono`) VALUES
-(1234567, 'Danillo', 'Zimermann', 'Montevideo', 1255478);
+(1122334, 'Washinton', 'Pereira', 'Paso de los mellizos 123', 92369258),
+(1234567, 'Danillo', 'Zimermann', 'Montevideo', 1255478),
+(4305844, 'Damian', 'Acevedo', 'La palma 2327', 99765140),
+(7654321, 'Karl', 'Sanders', 'Bvar. España 1936', 99256256);
 
 --
 -- Indexes for dumped tables
