@@ -1,6 +1,7 @@
 <?php
 
 require_once("../database/DatabaseOperations.php");
+require_once("../controllers/SessionManager.php");
 
 class Login{
 
@@ -47,15 +48,5 @@ class Login{
 
     }
 
-
-
-
-
-
-
 }
-
-
-
-
 ?>
