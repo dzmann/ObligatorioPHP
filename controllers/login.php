@@ -1,39 +1,39 @@
 <?php
 
 require_once("../database/DatabaseOperations.php");
+require_once("../controllers/SessionManager.php");
 
-if(isset($_POST["entrar"])){
+class Login{
 
-    $email = $_POST["email"];
-    $contrasenia = $_POST["contrasenia"];
-    $rol = $_POST["rol"];
-    $contrasenia_md5 = md5($contrasenia);
-    $dbOperation = new DatabaseOperations();
-
-    if($rol=="encargado"){
-        $result = $dbOperation->select("ENCARGADOS", "EMAIL='$email'", array("EMAIL", "NOMBRE", "CONTRASENIA"));
-        if(isset($result[0])){
-            echo "contrasenia: $contrasenia_md5";
+    public static function Authenticate($rol, $user, $password){
+        $isLogged = false;
+        $password_md5 = md5($password);
+        $dbOperation = new DatabaseOperations();
+        if($rol=="encargado"){
             
-            if($result[0]["EMAIL"]==$email && $result[0]["CONTRASENIA"==$contrasenia_md5]){
-                echo "login correcto";
-            }else{
-                echo "login incorrecto";
+            $result = $dbOperation->select("ENCARGADOS", "EMAIL='$user'", array("EMAIL", "CONTRASENIA"));
+            
+            if(isset($result[0])){
+                
+                if($result[0]["EMAIL"]==$user && $result[0]["CONTRASENIA"]==$password_md5){
+                    $isLogged=true;
+                }
             }
 
-        }else{
-            echo "Usuario inválido";
+        }else if($rol=="alumno"){
+            
+            $result = $dbOperation->select("ALUMNOS", "CI='$user'", array("CI", "PIN"));
+    
+            if(isset($result[0])){
+                
+                if($result[0]["CI"]==$user && $result[0]["PIN"==$password_md5]){
+                    $isLogged=true;
+                }
+            }
         }
+        return $isLogged;
+
     }
-    
-
-    
-
-
 
 }
-
-
-
-
 ?>
