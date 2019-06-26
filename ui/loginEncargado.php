@@ -4,4 +4,18 @@
         Contraseña<input type="password" name="contrasenia" id="contrasenia"><br>
         <input type="submit" value="Entrar" name="entrar">
     </fieldset>
+
+    <?php
+
+    if(isset($_GET["login"])){
+        $error = $_GET["login"];
+
+        if($error == "error"){
+            echo "<span>Usuario o contraseña inválidos</span>";
+        }else if($error == "success"){
+            echo "<span>Login correcto.</span>";
+        }
+    }
+
+    ?>
 </form>
