@@ -5,3 +5,9 @@
         <input type="submit" value="Inscribirme" name="entrar">
     </fieldset>
 </form>
+
+<?php
+include_once "../controllers/AlumnosController.php"
+
+
+?>
