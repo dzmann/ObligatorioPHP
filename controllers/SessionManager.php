@@ -8,7 +8,7 @@ class SessionManager{
         $_SESSION["userId"] = $userId;
         $_SESSION["nombre"] = $nombre;
     
-        //echo "Sesión iniciada para: ".$_SESSION["userId"];
+
     }
 
     function getSession(){
