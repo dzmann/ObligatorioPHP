@@ -1,6 +1,7 @@
 <div class="main">
     <?php
-    require_once "./listados/listado-cursos.php"
-
+    echo PROJECT_ROOT;
+    require_once "./listados/listado-cursos.php";
+    
     ?>
 </div>

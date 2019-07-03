@@ -7,7 +7,7 @@
     </tr>
     <tr>
         <?php
-        require_once "./../controllers/CursosController.php";
+        require_once "./../../controllers/CursosController.php";
 
         $CursosController = new CursosController();
         $cursos = $CursosController->getCursos();

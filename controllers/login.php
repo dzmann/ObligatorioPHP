@@ -22,7 +22,8 @@ class Login
                     $isLogged = true;
                     $encargado = new Encargado($result[0]["EMAIL"], $result[0]["NOMBRE"], $result[0]["CONTRASENIA"]);
                     $sessionManager = new SessionManager();
-                    $sessionManager->createSession($encargado->get("email"), $encargado->get("nombre"));
+                    $sessionManager->createSession($encargado->__get("email"), $encargado->__get("nombre"));
+        
                 }
             }
         } else if ($rol == "alumno") {
