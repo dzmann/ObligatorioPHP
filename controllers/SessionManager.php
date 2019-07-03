@@ -15,20 +15,33 @@ class SessionManager{
 
     function getSession(){
      session_start();
-        $sessionArray["userid"] = $_SESSION["userId"];
-        $sessionArray["nombre"] = $_SESSION["nombre"];
+     $sessionArray=null;
+
+        if(isset($_SESSION["userId"])){
+            $sessionArray["userid"] = $_SESSION["userId"];
+            $sessionArray["nombre"] = $_SESSION["nombre"];
+        }
+        
      return $sessionArray;
     }
 
     function checkSession($userId){
-        session_start();
+        
+        $result = false;
         $segundos_inactivos = time() - $_SESSION['last_activity'];
 
         if($segundos_inactivos > $this->session_timeout){
-            session_unset();
-            session_destroy();
+            $this->destroySession();
+        }else{
+            $result = true;
         }
+        return $result;
+    }   
 
+    function destroySession(){
+        session_start();
+        session_unset();
+        session_destroy();
     }
 
 }

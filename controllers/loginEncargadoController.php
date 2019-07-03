@@ -6,7 +6,7 @@ if (isset($_POST["entrar"])) {
     $loginResult = Login::Authenticate("encargado", $_POST["email"], $_POST["contrasenia"]);
     
     if($loginResult){
-        header( 'Location: ../ui/loginEncargado.php?login=success');
+        header( 'Location: ../ui/seccionEncargado.php');
     }else{
         header( 'Location: ../ui/loginEncargado.php?login=error' );
     }
