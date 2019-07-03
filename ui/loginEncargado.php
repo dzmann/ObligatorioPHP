@@ -6,6 +6,7 @@
     </fieldset>
 
     <?php
+    
 
     if(isset($_GET["login"])){
         $error = $_GET["login"];
@@ -14,6 +15,8 @@
             echo "<span>Usuario o contraseña inválidos</span>";
         }else if($error == "success"){
             echo "<span>Login correcto.</span>";
+        }else if($error == "expired"){
+            echo "<span>Su sesión ha expirado, ingrese nuevamente.</span>";;
         }
     }
 

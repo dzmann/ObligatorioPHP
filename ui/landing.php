@@ -8,7 +8,7 @@
             <a href="ui/main.php">Accesso Alumno</a>
         </div>
         <div class="encargado">
-            <a href="ui/login.php">Acceso encargado</a>
+            <a href="ui/loginEncargado.php">Acceso encargado</a>
         </div>
     </div>
 </div>
