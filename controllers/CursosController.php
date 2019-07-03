@@ -14,11 +14,15 @@ class CursosController
         return $cursos;
     }
 
-    public function doInscripcion($cedulaAlumno, $idCurso){
+    public static function doInscripcion($inscripcion)
+    {
         $dbOperation = new DataBaseOperations();
 
-        $inscipto = $dbOperation->select("inscripciones", "ci_alumno =  $cedulaAlumno");
-        echo $inscipto;
-
+        $inscipto = $dbOperation->select("inscripciones", "ci_alumno = $inscripcion->ci");
+        if (count($inscipto) == 0) {
+            $dbOperation->insert($inscripcion);
+        } else {
+            echo "no se pudo inscribir";
+        }
     }
 }

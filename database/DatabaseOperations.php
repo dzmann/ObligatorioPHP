@@ -34,7 +34,7 @@ class DatabaseOperations
                 $result = $this->databaseConnection->dbInsert($query);
                 break;
             case "Inscripcion":
-                $query = "INSERT INTO INSCRIPCIONES (CI_ALUMNO, CI_CURSO) VALUES ('$object->ciAlumno', '$object->ciCurso')";
+                $query = "INSERT INTO INSCRIPCIONES (CI_ALUMNO, ID_CURSO) VALUES ('$object->ci', '$object->idCurso')";
                 $result = $this->databaseConnection->dbInsert($query);
                 break;
             case "Curso":
@@ -63,13 +63,13 @@ class DatabaseOperations
                 $counter++;
             }
         } else {
-            $query .= " * ";
+            $query .= "*";
         }
 
         $query .= " FROM $table";
 
         if ($conditions != null) {
-            $query .= "  WHERE $conditions";
+            $query .= " WHERE $conditions";
         }
 
         $result = $this->databaseConnection->dbSelect($query);
@@ -86,13 +86,3 @@ class DatabaseOperations
 }
 
 $operation = new DatabaseOperations();
-
-//$alumno = new Alumno(5555, "Alumnillo", "Zimermann", "Montevideo", 25412541, "imgprueba.jpg", 12456);
-
-/*if($operation->insert($alumno)){
-    echo "Insert correcto";
-}else{
-    echo "Ocurrió un error al insertar";
-}*/
-
-//$r = $operation->select("ALUMNOS", "NOMBRES='Alumnillo'");
