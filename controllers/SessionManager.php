@@ -32,10 +32,3 @@ class SessionManager{
     }
 
 }
-
-
-
-
-
-
-?>

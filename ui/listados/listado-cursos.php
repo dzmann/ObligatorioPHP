@@ -13,7 +13,7 @@
         $cursos = $CursosController->getCursos();
 
         foreach ($cursos as $row) {
-            echo "<td>" . $row['id'] . "</td><td>" . $row['materia'] . "</td><td>" . $row['profesor'] . "</td><td><a href='/loginalumno.php?idCurso=" . $row['id'] . "'>Inscribirme</a></td>";
+            echo "<td>" . $row['id'] . "</td><td>" . $row['materia'] . "</td><td>" . $row['profesor'] . "</td><td><a href='loginalumno.php?idCurso=" . $row['id'] . "'>Inscribirme</a></td>";
         }
 
         ?>
