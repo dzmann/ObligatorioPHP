@@ -8,7 +8,7 @@ class AlumnosController
     public function getAlumnos()
     {
         $dbOperation = new DataBaseOperations();
-        $alumnos = $dbOperation->select("alumnos");
+        $alumnos = $dbOperation->select("alumnos", "STATUS=1");
         return $alumnos;
     }
 
@@ -23,5 +23,15 @@ class AlumnosController
     public function createAlumno($alumno){
         $dbOperation = new DataBaseOperations();
         return $dbOperation->insert($alumno);
+    }
+
+    public function updateAlumno($alumno){
+        $dbOperation = new DataBaseOperations();
+        return $dbOperation->update($alumno);
+    }
+
+    public function deactivateAlumno($id){
+        $dbOperation = new DataBaseOperations();
+        return $dbOperation->deactivate("ALUMNOS", "CI=$id");
     }
 }

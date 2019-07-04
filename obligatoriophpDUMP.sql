@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2019 at 05:34 PM
+-- Generation Time: Jul 04, 2019 at 11:03 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 5.6.38
 
@@ -28,10 +28,6 @@ SET time_zone = "+00:00";
 -- Table structure for table `alumnos`
 --
 
-CREATE DATABASE IF NOT EXISTS obligatoriophp;
-
-USE obligatoriophp;
-
 CREATE TABLE `alumnos` (
   `ci` int(10) NOT NULL,
   `nombres` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
@@ -39,17 +35,22 @@ CREATE TABLE `alumnos` (
   `direccion` varchar(80) COLLATE utf8_spanish_ci NOT NULL,
   `telefono` int(15) NOT NULL,
   `foto` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `pin` int(6) NOT NULL
+  `pin` int(6) NOT NULL,
+  `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Dumping data for table `alumnos`
 --
 
-INSERT INTO `alumnos` (`ci`, `nombres`, `apellidos`, `direccion`, `telefono`, `foto`, `pin`) VALUES
-(5555, 'Alumnillo', 'Zimermann', 'Montevideo', 25412541, '?PNG\r\n\Z\n\0\0\0\rIHDR\0\0?\0\0?\0\0\0ȍ??\0\0\0tEXtSoftware\0A', 12456),
-(1133557, 'Tommy', 'Araya', 'Soriano 2366', 99965412, '', 123456),
-(78451231, 'Maximilian', 'Schwarzmüller', 'Rio Branco 3000', 92587589, '', 654321);
+INSERT INTO `alumnos` (`ci`, `nombres`, `apellidos`, `direccion`, `telefono`, `foto`, `pin`, `status`) VALUES
+(2323, 'Juance', 'Pepelolo', '18', 1321311, 'Captura.PNG', 1234, 0),
+(5555, 'Alumnillo', 'Zimermann', 'Montevideo23', 123456789, 'avatar13.jpg', 12456, 0),
+(12314, 'Pepe', 'Martinez', 'Montevideoa', 2342342, 'avatar12.jpg', 2222, 1),
+(234234, 'Juance', 'Pepelolo', '18', 1321311, 'avatar14.jpg', 1234, 1),
+(5555555, 'Juance', 'Pepelolo', '18', 1321311, 'avatar15.png', 1111, 0),
+(12345678, 'Pepe', 'Guardiola', 'Yoquese', 1231231, 'avatar11.jpg', 123123, 1),
+(234245345, 'Juance', 'Pepelolo', '18 de Julio 1234', 1321311, 'avatar13.jpg', 1234, 1);
 
 -- --------------------------------------------------------
 
@@ -63,8 +64,6 @@ CREATE TABLE `cursos` (
   `profesor` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
-INSERT INTO `cursos` (`id`, `materia`, `profesor`) VALUES
-(1, 'matematica', 1234567);
 -- --------------------------------------------------------
 
 --
@@ -82,8 +81,8 @@ CREATE TABLE `encargados` (
 --
 
 INSERT INTO `encargados` (`email`, `nombre`, `contrasenia`) VALUES
-('eemail@email.com', 'Pepe', 'Una contraseÃ±a loca'),
-('email@email.com', 'Pepe', 'Una contraseÃ±a loca');
+('eemail@email.com', 'Pepe', '81dc9bdb52d04dc20036dbd8313ed055'),
+('email@email.com', 'Pepe', '81dc9bdb52d04dc20036dbd8313ed055');
 
 -- --------------------------------------------------------
 
@@ -109,10 +108,6 @@ CREATE TABLE `materias` (
   `carga_horaria` tinyint(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
-INSERT INTO `materias` (`nombre`, `contenidos`, `nivel`, `carga_horaria`) VALUES
-('biologia', 'Celulas, aparato respiratorio, disección de lombrices', 'Primero', 16),
-('fisica', 'Leyes de newton, principios de la termodinamica', 'Segundo', 10),
-('Matematica', 'Trigonometría, Funciones elementales, Números complejos', 'Tercero', 30);
 -- --------------------------------------------------------
 
 --
@@ -132,10 +127,7 @@ CREATE TABLE `profesores` (
 --
 
 INSERT INTO `profesores` (`ci`, `nombre`, `apellido`, `direccion`, `telefono`) VALUES
-(1122334, 'Washinton', 'Pereira', 'Paso de los mellizos 123', 92369258),
-(1234567, 'Danillo', 'Zimermann', 'Montevideo', 1255478),
-(4305844, 'Damian', 'Acevedo', 'La palma 2327', 99765140),
-(7654321, 'Karl', 'Sanders', 'Bvar. España 1936', 99256256);
+(1234567, 'Danillo', 'Zimermann', 'Montevideo', 1255478);
 
 --
 -- Indexes for dumped tables

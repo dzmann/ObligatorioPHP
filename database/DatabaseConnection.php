@@ -86,6 +86,20 @@ class DatabaseConnection{
         }
         return $result;
     }
+
+
+    function dbDeactivate($query){
+        $result = null;
+
+        try{
+            $conexion = $this->getConnection();
+            $result = mysqli_query($conexion, $query);
+            mysqli_close($conexion);
+        }catch(Exception $ex){
+            echo "Ocurrió un error al desactivar el item";
+        }
+        return $result;
+    }
  
 }
 
