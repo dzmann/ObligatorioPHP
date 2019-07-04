@@ -10,6 +10,7 @@ class Alumno extends Usuario{
     private $telefono;
     private $foto;
     private $pin;
+    private $status;
 
     public function __construct($ci, $nombre, $apellidos, $direccion, $telefono, $foto, $pin){
         parent::__construct($nombre);
@@ -19,6 +20,7 @@ class Alumno extends Usuario{
         $this->telefono = $telefono;
         $this->foto = $foto;
         $this->pin = $pin;
+        $this->status = 1;
     }
 
     public function __get($atributo) {

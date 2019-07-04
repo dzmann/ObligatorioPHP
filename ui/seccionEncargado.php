@@ -3,6 +3,7 @@
     include_once PROJECT_ROOT."/ui/menuEncargado.php";
     require_once PROJECT_ROOT."/controllers/AlumnosController.php";
     require_once PROJECT_ROOT."/controllers/CursosController.php";
+    require_once PROJECT_ROOT."/controllers/FileUploader.php";
     require_once PROJECT_ROOT."/controllers/SessionManager.php";
     require_once PROJECT_ROOT."/utils/EntitiesClassLoader.php";
 
