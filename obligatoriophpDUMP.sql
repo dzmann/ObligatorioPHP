@@ -12,6 +12,9 @@ SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
+CREATE DATABASE IF NOT EXISTS obligatoriophp;
+
+USE obligatoriophp;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -44,13 +47,13 @@ CREATE TABLE `alumnos` (
 --
 
 INSERT INTO `alumnos` (`ci`, `nombres`, `apellidos`, `direccion`, `telefono`, `foto`, `pin`, `status`) VALUES
-(2323, 'Juance', 'Pepelolo', '18', 1321311, 'Captura.PNG', 1234, 0),
-(5555, 'Alumnillo', 'Zimermann', 'Montevideo23', 123456789, 'avatar13.jpg', 12456, 0),
-(12314, 'Pepe', 'Martinez', 'Montevideoa', 2342342, 'avatar12.jpg', 2222, 1),
-(234234, 'Juance', 'Pepelolo', '18', 1321311, 'avatar14.jpg', 1234, 1),
-(5555555, 'Juance', 'Pepelolo', '18', 1321311, 'avatar15.png', 1111, 0),
-(12345678, 'Pepe', 'Guardiola', 'Yoquese', 1231231, 'avatar11.jpg', 123123, 1),
-(234245345, 'Juance', 'Pepelolo', '18 de Julio 1234', 1321311, 'avatar13.jpg', 1234, 1);
+(2323, 'Juance', 'Pepelolo', '18 y ejido', 1321311, 'Captura.PNG', 1234, 0),
+(5555, 'Alumnillo', 'Zimermann', 'Montevideo 2332', 123456789, 'avatar13.jpg', 12456, 0),
+(12314, 'Pepe', 'Martinez', 'Blanes 366', 2342342, 'avatar12.jpg', 2222, 1),
+(234234, 'Alfredo', 'Casero', 'Yaguarón 3333', 1321311, 'avatar14.jpg', 1234, 1),
+(5555555, 'Lidia', 'Labuela', 'Obligado 1369', 1321311, 'avatar15.png', 1111, 0),
+(12345678, 'Gabriel', 'Pereira', 'Yoquese 322', 1231231, 'avatar11.jpg', 123123, 1),
+(234245345, 'Juan', 'Sartori', '18 de Julio 1234', 1321311, 'avatar13.jpg', 1234, 1);
 
 -- --------------------------------------------------------
 
@@ -64,6 +67,8 @@ CREATE TABLE `cursos` (
   `profesor` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+INSERT INTO `cursos` (`id`, `materia`, `profesor`) VALUES
+(1, 'matematica', 4305844);
 -- --------------------------------------------------------
 
 --
@@ -81,7 +86,7 @@ CREATE TABLE `encargados` (
 --
 
 INSERT INTO `encargados` (`email`, `nombre`, `contrasenia`) VALUES
-('eemail@email.com', 'Pepe', '81dc9bdb52d04dc20036dbd8313ed055'),
+('admin', 'admin', '81dc9bdb52d04dc20036dbd8313ed055'),
 ('email@email.com', 'Pepe', '81dc9bdb52d04dc20036dbd8313ed055');
 
 -- --------------------------------------------------------
@@ -108,6 +113,11 @@ CREATE TABLE `materias` (
   `carga_horaria` tinyint(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+INSERT INTO `materias` (`nombre`, `contenidos`, `nivel`, `carga_horaria`) VALUES
+('biologia', 'Celulas, aparato respiratorio, disección de lombrices', 'Primero', 16),
+('fisica', 'Leyes de newton, principios de la termodinamica', 'Segundo', 10),
+('Matematica', 'Trigonometría, Funciones elementales, Números complejos', 'Tercero', 30);
+
 -- --------------------------------------------------------
 
 --
@@ -127,7 +137,10 @@ CREATE TABLE `profesores` (
 --
 
 INSERT INTO `profesores` (`ci`, `nombre`, `apellido`, `direccion`, `telefono`) VALUES
-(1234567, 'Danillo', 'Zimermann', 'Montevideo', 1255478);
+(1122334, 'Washinton', 'Pereira', 'Paso de los mellizos 123', 92369258),
+(1234567, 'Danillo', 'Zimermann', 'Montevideo', 1255478),
+(4305844, 'Damian', 'Acevedo', 'La palma 2327', 99765140),
+(7654321, 'Karl', 'Sanders', 'Bvar. España 1936', 99256256);
 
 --
 -- Indexes for dumped tables

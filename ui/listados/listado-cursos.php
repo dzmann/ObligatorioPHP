@@ -7,6 +7,8 @@
     </tr>
     <tr>
         <?php
+        require_once "./../utils/Constants.php";
+        require_once PROJECT_ROOT."/controllers/CursosController.php";
 
         $CursosController = new CursosController();
         $cursos = $CursosController->getCursos();
