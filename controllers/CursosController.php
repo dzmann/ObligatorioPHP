@@ -21,8 +21,9 @@ class CursosController
         $inscipto = $dbOperation->select("inscripciones", "ci_alumno = $inscripcion->ci");
         if (count($inscipto) == 0) {
             $dbOperation->insert($inscripcion);
+            return true;
         } else {
-            echo "no se pudo inscribir";
+            return false;
         }
     }
 }

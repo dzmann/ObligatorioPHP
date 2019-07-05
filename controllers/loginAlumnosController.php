@@ -1,6 +1,4 @@
 <?php
-
-
 if (isset($_POST["entrar"])) {
     require_once("../controllers/login.php");
     require_once("../controllers/CursosController.php");
@@ -12,10 +10,23 @@ if (isset($_POST["entrar"])) {
     $loginResult = false;
     $loginResult = Login::Authenticate("alumno", $ciAlumno, $pin);
 
+    $result = "";
+
     if ($loginResult) {
         $inscripcion = new Inscripcion($ciAlumno, $idCurso);
-        CursosController::doInscripcion($inscripcion);
+        $insc = CursosController::doInscripcion($inscripcion);
+        $insc ? $result="Te inscribiste correctamente" : $result="hubo un error al inscribirte";
     } else {
-        echo "login fail";
+         $result = "usuario incorrecto";
     }
 }
+
+?>
+
+<div>
+    <?php 
+    
+        echo $result;
+    ?>
+
+</div>
