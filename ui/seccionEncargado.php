@@ -13,6 +13,7 @@
     include_once PROJECT_ROOT."/ui/menuEncargado.php";
     require_once PROJECT_ROOT."/controllers/AlumnosController.php";
     require_once PROJECT_ROOT."/controllers/CursosController.php";
+    require_once PROJECT_ROOT."/controllers/MateriasController.php";
     require_once PROJECT_ROOT."/controllers/FileUploader.php";
     require_once PROJECT_ROOT."/utils/EntitiesClassLoader.php";
 
@@ -23,6 +24,8 @@
 
             if($section == "cursos"){
                 include_once PROJECT_ROOT."/ui/listados/listado-cursos.php";
+            }else if($section == "materias"){
+                include_once PROJECT_ROOT."/ui/listados/listado-materias.php";
             }else if($section == "alumnos"){
                 include_once PROJECT_ROOT."/ui/listados/listado-alumnos.php";
             }else if($section == "addEditAlumno"){
