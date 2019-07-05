@@ -5,7 +5,7 @@
 
 
         <div class="alumno">
-            <a href="ui/main.php">Accesso Alumno</a>
+            <a href="ui/menuAlumno.php">Accesso Alumno</a>
         </div>
         <div class="encargado">
             <a href="ui/loginEncargado.php">Acceso encargado</a>
