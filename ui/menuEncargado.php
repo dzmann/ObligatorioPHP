@@ -13,6 +13,7 @@
         <li><a href="seccionEncargado.php?section=cursos">ABM Cursos</a></li>
         <li><a href="seccionEncargado.php?section=alumnos">ABM Alumnos</a></li>
         <li><a href="seccionEncargado.php?section=profesores">ABM Profesores</a></li>
+        <li><a href="seccionEncargado.php?section=encargados">ABM Encargados</a></li>
         <li><a href="seccionEncargado.php?section=materias">ABM Materias</a></li>
       </ul>
 
