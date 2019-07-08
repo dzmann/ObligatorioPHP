@@ -10,7 +10,6 @@ class Alumno extends Usuario{
     private $telefono;
     private $foto;
     private $pin;
-    private $status;
 
     public function __construct($ci, $nombre, $apellidos, $direccion, $telefono, $foto, $pin){
         parent::__construct($nombre, 1);

@@ -8,9 +8,7 @@ class MateriasController
     public function getMaterias()
     {
         $dbOperation = new DataBaseOperations();
-
-        $cursos = $dbOperation->select("materias");
-
+        $cursos = $dbOperation->select("materias", "STATUS=1");
         return $cursos;
     }
 
@@ -23,17 +21,17 @@ class MateriasController
 
     public function createMateria($materia){
         $dbOperation = new DataBaseOperations();
-        return $dbOperation->insert($alumno);
+        return $dbOperation->insert($materia);
     }
 
     public function updateMateria($materia){
         $dbOperation = new DataBaseOperations();
-        return $dbOperation->update($alumno);
+        return $dbOperation->update($materia);
     }
 
-    public function deactivateAlumno($id){
+    public function deactivateMateria($id){
         $dbOperation = new DataBaseOperations();
-        return $dbOperation->deactivate("ALUMNOS", "CI=$id");
+        return $dbOperation->deactivate("MATERIAS", "nombre='$id'");
     }
 
     

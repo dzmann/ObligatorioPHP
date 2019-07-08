@@ -30,7 +30,7 @@
             if($materiasController->updateMateria($materia)){
                 $mensaje = "<span style='color:green'>Datos actualizados</span>";
             }else{
-                $mensaje = "<span style='color:red'>Ocurrió un erro actualizando los datos</span>";
+                $mensaje = "<span style='color:red'>Ocurrió un error actualizando los datos</span>";
             }
         }
 
@@ -63,7 +63,18 @@
                 <textarea name="contenidos" id="contenidos" cols="30" rows="10"><?php echo $fieldContenidos; ?></textarea>
             </fieldset>   
             <fieldset>
-                Nivel: <input type="text" required name="nivel" value=<?php echo $fieldNivel; ?>>
+            Nivel:<select name="nivel" id="nivel">
+                    <?php
+                        $arrayNiveles = unserialize(NIVELES);
+                        foreach($arrayNiveles as $nivel){
+                            if($nivel == $fieldNivel){
+                                echo "<option value='$nivel' selected>$nivel</option>";
+                            }else{
+                                echo "<option value='$nivel'>$nivel</option>";
+                            }
+                        }
+                    ?>
+                </select>
             </fieldset>   
             <fieldset>
                 Carga horaria: <input type="number" required name="carga_horaria" value=<?php echo $fieldCargaHoraria; ?>>

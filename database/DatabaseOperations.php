@@ -30,7 +30,7 @@ class DatabaseOperations
                 $result = $this->databaseConnection->dbInsert($query);
                 break;
             case "Materia":
-                $query = "INSERT INTO MATERIAS (NOMBRE, CONTENIDOS, NIVEL, CARGA_HORARIA) VALUES ('$object->nombre', '$object->contenidos', '$object->nivel', $object->cargaHoraria, $object->status)";
+                $query = "INSERT INTO MATERIAS (NOMBRE, CONTENIDOS, NIVEL, CARGA_HORARIA, STATUS) VALUES ('$object->nombre', '$object->contenidos', '$object->nivel', $object->cargaHoraria, $object->status)";
                 $result = $this->databaseConnection->dbInsert($query);
                 break;
             case "Inscripcion":
@@ -53,28 +53,24 @@ class DatabaseOperations
         $result = false;
         switch (get_class($object)) {
             case "Profesor":
-                $query = "UPDATE PROFESORES SET (CI, NOMBRE, APELLIDO, DIRECCION, TELEFONO) VALUES ($object->ci, '$object->nombre', '$object->apellido', '$object->direccion', $object->telefono)";
-                $result = $this->databaseConnection->dbInsert($query);
+                $query = "UPDATE PROFESORES SET CI=$object->ci, NOMBRE='$object->nombre', APELLIDO='$object->apellido', DIRECCION='$object->direccion', TELEFONO=$object->telefono WHERE CI=$object->ci";
+                $result = $this->databaseConnection->dbUpdate($query);
                 break;
             case "Alumno":
                 $query = "UPDATE ALUMNOS SET CI=$object->ci, NOMBRES='$object->nombre', APELLIDOS='$object->apellidos', DIRECCION='$object->direccion', TELEFONO=$object->telefono, FOTO='$object->foto', PIN=$object->pin WHERE CI=$object->ci";
                 $result = $this->databaseConnection->dbUpdate($query);
                 break;
             case "Encargado":
-                $query = "UPDATE ENCARGADOS (EMAIL, NOMBRE, CONTRASENIA) VALUES ('$object->email', '$object->nombre', '$object->contrasenia')";
-                $result = $this->databaseConnection->dbInsert($query);
+                $query = "UPDATE ENCARGADOS SET EMAIL='$object->email', NOMBRE='$object->nombre', CONTRASENIA='$object->contrasenia' WHERE EMAIL='$object->email'";
+                $result = $this->databaseConnection->dbUpdate($query);
                 break;
             case "Materia":
-                $query = "UPDATE MATERIAS (NOMBRE, CONTENIDOS, NIVEL, CARGA_HORARIA) VALUES ('$object->nombre', '$object->contenidos', '$object->nivel', $object->cargaHoraria)";
-                $result = $this->databaseConnection->dbInsert($query);
-                break;
-            case "Inscripcion":
-                $query = "UPDATE INSCRIPCIONES (CI_ALUMNO, ID_CURSO) VALUES ('$object->ci', '$object->idCurso')";
-                $result = $this->databaseConnection->dbInsert($query);
+                $query = "UPDATE MATERIAS SET CONTENIDOS='$object->contenidos', NIVEL='$object->nivel', CARGA_HORARIA= $object->cargaHoraria WHERE NOMBRE='$object->nombre'";
+                $result = $this->databaseConnection->dbUpdate($query);
                 break;
             case "Curso":
-                $query = "UPDATE CURSOS (MATERIA, PROFESOR) VALUES ('$object->materia', '$object->profesor')";
-                $result = $this->databaseConnection->dbInsert($query);
+                $query = "UPDATE CURSOS SET MATERIA='$object->materia', PROFESOR='$object->profesor' WHERE ID=$object->id";
+                $result = $this->databaseConnection->dbUpdate($query);
                 break;
             default:
                 print "ERROR: Objecto desconocido";

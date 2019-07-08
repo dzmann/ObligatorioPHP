@@ -2,6 +2,7 @@
 
 class Curso{
 
+    private $id;
     private $idMateria;
     private $idProfesor;
     private $status;
