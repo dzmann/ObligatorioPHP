@@ -4,6 +4,4 @@ function borrar(link){
     if(confirm){
         window.location.replace(link);
     }
-
-
 }

@@ -6,7 +6,7 @@ class Encargado extends Usuario{
     private $contrasenia;
 
     public function __construct($email, $nombre, $contrasenia){
-        parent::__construct($nombre);
+        parent::__construct($nombre, 1);
         $this->email = $email;
         $this->contrasenia = $contrasenia;
     }

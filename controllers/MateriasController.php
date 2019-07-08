@@ -16,17 +16,17 @@ class MateriasController
 
     public function getMateria($id){
         $dbOperation = new DataBaseOperations();
-        $materia = $dbOperation->select("materias", "nombre=$id");
+        $materia = $dbOperation->select("materias", "nombre='$id'");
         $materiaObj = new Materia($materia[0]["nombre"], $materia[0]["contenidos"], $materia[0]["nivel"], $materia[0]["carga_horaria"]);
         return $materiaObj;
     }
 
-    public function createAlumno($alumno){
+    public function createMateria($materia){
         $dbOperation = new DataBaseOperations();
         return $dbOperation->insert($alumno);
     }
 
-    public function updateAlumno($alumno){
+    public function updateMateria($materia){
         $dbOperation = new DataBaseOperations();
         return $dbOperation->update($alumno);
     }

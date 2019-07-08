@@ -31,6 +31,9 @@
             }else if($section == "addEditAlumno"){
                 include_once PROJECT_ROOT."/ui/addEditAlumno.php";
             }
+            else if($section == "addEditMateria"){
+                include_once PROJECT_ROOT."/ui/addEditMateria.php";
+            }
         }else{
             include_once PROJECT_ROOT."/ui/listados/listado-alumnos.php";
         }

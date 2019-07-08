@@ -9,7 +9,7 @@
     $fieldContenidos = "";
     $fieldNivel = "";
     $fieldCargaHoraria = "";
-
+    $mensaje = "";
 
     if(isset($_POST["enviar"])){
 
