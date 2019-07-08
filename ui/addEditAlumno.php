@@ -76,13 +76,13 @@
                 Cédula: <input type="number" required name="ci" value=<?php echo $fieldCedula; ?>>
             </fieldset>
             <fieldset>
-                Nombres: <input type="text" required name="nombres" value=<?php echo $fieldNombres; ?>>
+                Nombres: <input type="text" required name="nombres" value='<?php echo $fieldNombres; ?>'>
             </fieldset>   
             <fieldset>
-                Apellidos: <input type="text" required name="apellidos" value=<?php echo $fieldApellidos; ?>>
+                Apellidos: <input type="text" required name="apellidos" value='<?php echo $fieldApellidos; ?>'>
             </fieldset>   
             <fieldset>
-                Dirección: <input type="text" required name="direccion" value=<?php echo $fieldDireccion; ?>>
+                Dirección: <input type="text" required name="direccion" value='<?php echo $fieldDireccion; ?>'>
             </fieldset>   
             <fieldset>
                 Teléfono: <input type="text" required name="telefono" value=<?php echo $fieldTelefono; ?>>

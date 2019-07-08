@@ -56,7 +56,7 @@
             <td>
             <form action="seccionEncargado.php?section=addEditMateria" method="post">
              <fieldset>
-                Nombre: <input type="text" required name="nombre" value=<?php echo $fieldNombre; ?>>
+                Nombre: <input type="text" required name="nombre" value='<?php echo $fieldNombre; ?>'>
             </fieldset>
             <fieldset>
                 Contenidos:
