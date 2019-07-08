@@ -1,7 +1,9 @@
+
 <?php
     require_once "./../utils/Constants.php";
     require_once PROJECT_ROOT."/controllers/SessionManager.php";
     $session = new SessionManager();
+    
     $havePermission = false;
 
     if($session->getSession()!=null){
@@ -47,3 +49,4 @@
     }
 
 ?>
+

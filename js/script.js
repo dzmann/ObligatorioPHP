@@ -5,3 +5,7 @@ function borrar(link){
         window.location.replace(link);
     }
 }
+
+function cerrarSesion(){
+    window.location.replace("../controllers/ExitSession.php");
+}
