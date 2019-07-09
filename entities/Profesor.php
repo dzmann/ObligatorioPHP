@@ -8,7 +8,7 @@ class Profesor extends Usuario{
     private $telefono;
 
     public function __construct($ci, $nombre, $apellido, $direccion, $telefono){
-        parent::__construct($nombre);
+        parent::__construct($nombre, 1);
         $this->ci = $ci;
         $this->apellido = $apellido;
         $this->direccion = $direccion;
