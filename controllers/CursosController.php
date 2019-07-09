@@ -26,4 +26,13 @@ class CursosController
             return false;
         }
     }
+
+    public function getCursosByAlumno($ciAlumno)
+    {
+        $dbOperation = new DataBaseOperations();
+
+        $cursos = $dbOperation->select("cursos, inscripciones", "ci_alumno = $ciAlumno");
+
+        return $cursos;
+    }
 }
