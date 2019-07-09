@@ -8,7 +8,7 @@ class CursosController
     public function getCursos()
     {
         $dbOperation = new DataBaseOperations();
-        $cursos = $dbOperation->select("cursos");
+        $cursos = $dbOperation->select("cursos", "status=1");
         return $cursos;
     }
 
@@ -39,7 +39,7 @@ class CursosController
     {
         $dbOperation = new DataBaseOperations();
         $columns = array("CU.ID AS ID", "CU.MATERIA AS MATERIA", "PRO.NOMBRE AS NOMBRE_PROFESOR", "PRO.APELLIDO AS APELLIDO");
-        $cursos = $dbOperation->select("CURSOS CU, PROFESORES PRO", "CU.PROFESOR = PRO.CI", $columns);
+        $cursos = $dbOperation->select("CURSOS CU, PROFESORES PRO", "CU.PROFESOR = PRO.CI AND CU.STATUS=1", $columns);
         return $cursos;
     }
 
