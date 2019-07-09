@@ -7,7 +7,8 @@ class Curso{
     private $idProfesor;
     private $status;
 
-    public function __construct($idMateria, $idProfesor){
+    public function __construct($id, $idMateria, $idProfesor){
+        $this->id = $id;
         $this->idMateria = $idMateria;
         $this->idProfesor = $idProfesor;
         $this->status = 1;

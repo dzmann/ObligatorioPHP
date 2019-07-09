@@ -10,7 +10,7 @@ class Login
     public static function Authenticate($rol, $user, $password)
     {
         $isLogged = false;
-        $password_md5 = md5($password);
+        $password_base64 = base64_encode($password);
         $dbOperation = new DatabaseOperations();
         if ($rol == "encargado") {
 
@@ -18,7 +18,7 @@ class Login
 
             if (isset($result[0])) {
 
-                if ($result[0]["EMAIL"] == $user && $result[0]["CONTRASENIA"] == $password_md5) {
+                if ($result[0]["EMAIL"] == $user && $result[0]["CONTRASENIA"] == $password_base64) {
                     $isLogged = true;
                     $encargado = new Encargado($result[0]["EMAIL"], $result[0]["NOMBRE"], $result[0]["CONTRASENIA"]);
                     $sessionManager = new SessionManager();

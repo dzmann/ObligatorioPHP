@@ -3,6 +3,8 @@
     require_once PROJECT_ROOT."/controllers/AlumnosController.php";
     require_once PROJECT_ROOT."/controllers/MateriasController.php";
     require_once PROJECT_ROOT."/controllers/ProfesoresController.php";
+    require_once PROJECT_ROOT."/controllers/EncargadosController.php";
+    require_once PROJECT_ROOT."/controllers/CursosController.php";
     
     $type = $_GET["section"];
 
@@ -21,7 +23,17 @@
             $profesoresController = new ProfesoresController();
             $profesoresController->deactivateProfesor($_GET["id"]);
             header('Location: ../ui/seccionEncargado.php?section=profesores');
-            break;    
+            break; 
+        case "encargados":
+            $encargadosController = new EncargadosController();
+            $encargadosController->deactivateEncargado($_GET["id"]);
+            header('Location: ../ui/seccionEncargado.php?section=encargados');
+            break;  
+        case "cursos":
+            $cursosController = new CursosController();
+            $cursosController->deactivateCurso($_GET["id"]);
+            header('Location: ../ui/seccionEncargado.php?section=cursos');
+            break;      
         default:
             die("Ocurrió un error eliminando el elemento, tipo desconocido");
             break;        

@@ -26,7 +26,7 @@ class DatabaseOperations
                 $result = $this->databaseConnection->dbInsert($query);
                 break;
             case "Encargado":
-                $query = "INSERT INTO ENCARGADOS (EMAIL, NOMBRE, CONTRASENIA) VALUES ('$object->email', '$object->nombre', '$object->contrasenia', $object->status)";
+                $query = "INSERT INTO ENCARGADOS (EMAIL, NOMBRE, CONTRASENIA,  STATUS) VALUES ('$object->email', '$object->nombre', '$object->contrasenia', $object->status)";
                 $result = $this->databaseConnection->dbInsert($query);
                 break;
             case "Materia":
@@ -38,7 +38,7 @@ class DatabaseOperations
                 $result = $this->databaseConnection->dbInsert($query);
                 break;
             case "Curso":
-                $query = "INSERT INTO CURSOS (MATERIA, PROFESOR) VALUES ('$object->materia', '$object->profesor', $object->status)";
+                $query = "INSERT INTO CURSOS (MATERIA, PROFESOR, STATUS) VALUES ('$object->idMateria', '$object->idProfesor', $object->status)";
                 $result = $this->databaseConnection->dbInsert($query);
                 break;
             default:
@@ -69,7 +69,7 @@ class DatabaseOperations
                 $result = $this->databaseConnection->dbUpdate($query);
                 break;
             case "Curso":
-                $query = "UPDATE CURSOS SET MATERIA='$object->materia', PROFESOR='$object->profesor' WHERE ID=$object->id";
+                $query = "UPDATE CURSOS SET MATERIA='$object->idMateria', PROFESOR=$object->idProfesor WHERE ID=$object->id";
                 $result = $this->databaseConnection->dbUpdate($query);
                 break;
             default:
@@ -102,7 +102,6 @@ class DatabaseOperations
         if ($conditions != null) {
             $query .= " WHERE $conditions";
         }
-
         $result = $this->databaseConnection->dbSelect($query);
 
         return $result;

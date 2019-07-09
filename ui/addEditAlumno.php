@@ -88,7 +88,7 @@
                 Teléfono: <input type="text" required name="telefono" value=<?php echo $fieldTelefono; ?>>
             </fieldset>   
             <fieldset>
-                PIN: <input type="password" required name="pin" value=<?php echo $fieldPIN; ?>>
+                PIN: <input type="password" required name="pin" minlength="6" maxlength="6" value=<?php echo $fieldPIN; ?>>
             </fieldset>   
             <fieldset>
                 <?php

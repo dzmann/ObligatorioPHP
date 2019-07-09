@@ -18,6 +18,7 @@
       </ul>
 
 <?php
+        $isAdmin=true;
         echo "Usuario logueado: <span style='position:relative; right:0'>".$_SESSION["userId"]."</span>";
         echo "<a onclick='cerrarSesion()' href=#>Salir</a>";
 ?>

@@ -32,6 +32,6 @@ class EncargadosController
 
     public function deactivateEncargado($id){
         $dbOperation = new DataBaseOperations();
-        return $dbOperation->deactivate("encargados", "email=$id");
+        return $dbOperation->deactivate("encargados", "email='$id'");
     }
 }

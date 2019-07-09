@@ -18,6 +18,7 @@
     require_once PROJECT_ROOT."/controllers/MateriasController.php";
     require_once PROJECT_ROOT."/controllers/ProfesoresController.php";
     require_once PROJECT_ROOT."/controllers/EncargadosController.php";
+    require_once PROJECT_ROOT."/controllers/CursosController.php";
     require_once PROJECT_ROOT."/controllers/FileUploader.php";
     require_once PROJECT_ROOT."/utils/EntitiesClassLoader.php";
 
@@ -42,6 +43,10 @@
                 include_once PROJECT_ROOT."/ui/listados/listado-encargados.php";
             }else if($section == "addEditEncargado"){
                 include_once PROJECT_ROOT."/ui/addEditEncargado.php";
+            }else if($section == "cursos"){
+                include_once PROJECT_ROOT."/ui/listados/listado-cursos.php";
+            }else if($section == "addEditCurso"){
+                include_once PROJECT_ROOT."/ui/addEditCurso.php";
             }
             else if($section == "addEditMateria"){
                 include_once PROJECT_ROOT."/ui/addEditMateria.php";

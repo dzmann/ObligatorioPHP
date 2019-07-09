@@ -15,7 +15,6 @@
     if(isset($_POST["enviar"])){
 
         if($_POST["mode"]=="create"){
-            
             $encargado = new Encargado($_POST["email"], $_POST["nombre"], $_POST["contrasenia"]);
 
             if($encargadosController->createEncargado($encargado)){
@@ -24,10 +23,8 @@
                 $mensaje = "<span style='color:red'>Ocurrió un error al crear el Encargado</span>";
             }
         }else{
-            
-
             $encargado = new Profesor($_POST["email"], $_POST["nombre"], $_POST["contrasenia"]);
-            
+
             if($encargadosController->updateEncargado($encargado)){
                 $mensaje = "<span style='color:green'>Datos actualizados</span>";
             }else{
@@ -45,11 +42,8 @@
         $encargado = $encargadosController->getEncargado($_GET["idEncargado"]);
         $fieldEmail = $encargado->email;
         $fieldNombre = $encargado->nombre;
-        $fieldContrasenia = $encargado->contrasenia;
-        
-
+        $fieldContrasenia = base64_decode($encargado->contrasenia);
     }
-
 ?>
 
     <table width="50%">
@@ -72,13 +66,8 @@
                 </form>
             </td>
         </tr>
-    
     </table>
-    
    <?php echo $mensaje; ?>
-
-    
-
 </body>
 
 </html>

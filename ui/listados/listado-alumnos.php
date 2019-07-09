@@ -19,7 +19,7 @@
        
         $alumnosController = new AlumnosController();
         $alumnos = $alumnosController->getAlumnos();
-
+        
         foreach ($alumnos as $row) {
             echo "<tr><td>" . $row['ci'] . "</td><td>" . $row['nombres'] . "</td><td>" . $row['apellidos'] . "</td><td>" . $row['direccion'] .
              "</td><td>" . $row['telefono'] . "</td><td><img src=../img/".$row['foto']." height='100' width='100'></td>
