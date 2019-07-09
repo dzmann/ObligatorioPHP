@@ -10,12 +10,13 @@
     $fieldApellido = "";
     $fieldDireccion = "";
     $fieldTelefono = "";
+    $fieldEmail="";
     $mensaje = "";
 
     if(isset($_POST["enviar"])){
 
         if($_POST["mode"]=="create"){
-            $encargado = new Encargado($_POST["email"], $_POST["nombre"], $_POST["contrasenia"]);
+            $encargado = new Encargado($_POST["email"], $_POST["nombre"], base64_encode($_POST["contrasenia"]));
 
             if($encargadosController->createEncargado($encargado)){
                 $mensaje = "<span style='color:green'>Encargado ingresado correctamente</span>";
@@ -23,7 +24,7 @@
                 $mensaje = "<span style='color:red'>Ocurrió un error al crear el Encargado</span>";
             }
         }else{
-            $encargado = new Profesor($_POST["email"], $_POST["nombre"], $_POST["contrasenia"]);
+            $encargado = new Encargado($_POST["email"], $_POST["nombre"], base64_encode($_POST["contrasenia"]));
 
             if($encargadosController->updateEncargado($encargado)){
                 $mensaje = "<span style='color:green'>Datos actualizados</span>";

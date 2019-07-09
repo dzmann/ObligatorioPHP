@@ -74,9 +74,9 @@
                     <?php
                         foreach($arrayProfesores as $profesor){
                             if($profesor["ci"] == $fieldProfesor){
-                                echo "<option value='".$profesor["ci"]."' selected>CI: ".$profesor["ci"]." - ".$profesor["nombre"]."</option>";
+                                echo "<option value='".$profesor["ci"]."' selected>CI: ".$profesor["ci"]." - ".$profesor["nombre"]." ".$profesor["apellido"]."</option>";
                             }else{
-                                echo "<option value='".$profesor["ci"]."'>CI: ".$profesor["ci"]." - ".$profesor["nombre"]."</option>";
+                                echo "<option value='".$profesor["ci"]."'>CI: ".$profesor["ci"]." - ".$profesor["nombre"]." ".$profesor["apellido"]."</option>";
                             }
                         }
                     ?>
