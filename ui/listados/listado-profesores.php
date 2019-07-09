@@ -1,5 +1,6 @@
 
 <body>
+<span><h3>Listado de profesores.</h3></span>
 <table class="profesores">
     <tr>
         <td>
@@ -12,6 +13,7 @@
         <th>Apellido</th>
         <th>Dirección</th>
         <th>Teléfono</th>
+        <th>Acciones</th>
     </tr>
     
         <?php

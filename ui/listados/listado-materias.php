@@ -1,5 +1,6 @@
 
 <body>
+<span><h3>Listado de materias.</h3></span>
 <table class="materias">
     <tr>
         <td>
@@ -11,6 +12,7 @@
         <th>Contenidos</th>
         <th>Nivel</th>
         <th>Carga horaria</th>
+        <th>Acciones</th>
     </tr>
     
         <?php

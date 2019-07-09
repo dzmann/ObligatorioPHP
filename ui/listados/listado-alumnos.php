@@ -1,5 +1,6 @@
 
 <body>
+<span><h3>Listado de alumnos.</h3></span>
 <table class="alumnos">
     <tr>
         <td>
@@ -13,6 +14,7 @@
         <th>Dirección</th>
         <th>Teléfono</th>
         <th>Foto</th>
+        <th>Acciones</th>
     </tr>
     
         <?php

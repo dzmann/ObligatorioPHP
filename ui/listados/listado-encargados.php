@@ -1,5 +1,6 @@
 
 <body>
+<span><h3>Listado de encargados.</h3></span>
 <table class="encargados">
     <tr>
         <td>
@@ -9,6 +10,7 @@
     <tr>
         <th>Email</th>
         <th>Nombre</th>
+        <th>Acciones</th>
     </tr>
     
         <?php

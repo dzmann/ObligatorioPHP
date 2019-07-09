@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 08, 2019 at 11:06 PM
+-- Generation Time: Jul 09, 2019 at 10:17 PM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -50,7 +50,9 @@ INSERT INTO `alumnos` (`ci`, `nombres`, `apellidos`, `direccion`, `telefono`, `f
 (234234, 'Alfredo', 'Casero', 'Yaguarón 3333', 1321311, 'avatar14.jpg', 1234, 1),
 (5555555, 'Lidia', 'Labuela', 'Obligado 1369', 1321311, 'avatar15.png', 1111, 1),
 (12345678, 'Gabriel', 'Pereira', 'Yoquese 322', 1231231, 'avatar11.jpg', 123123, 1),
-(234245345, 'Juan', 'Sartori', '18 de Julio 1234', 1321311, 'avatar13.jpg', 1234, 1);
+(234245345, 'Juan', 'Sartori', '18 de Julio 1234', 1321311, 'avatar13.jpg', 1234, 1),
+(345345345, 'Juance', 'Pepelolo', '18 de Julio 1234', 1321311, 'avatar13.jpg', 222222, 0),
+(1232134234, 'Juance', 'Pepelolo', '18 de Julio 1234', 1321311, 'avatar12.jpg', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -70,7 +72,10 @@ CREATE TABLE `cursos` (
 --
 
 INSERT INTO `cursos` (`id`, `materia`, `profesor`, `status`) VALUES
-(1, 'matematica', 4305844, 1);
+(1, 'Matematica', 4305844, 1),
+(2, 'programacion', 4305844, 1),
+(3, 'biologia', 7654321, 1),
+(4, 'Bases de datos', 1234567, 1);
 
 -- --------------------------------------------------------
 
@@ -90,8 +95,8 @@ CREATE TABLE `encargados` (
 --
 
 INSERT INTO `encargados` (`email`, `nombre`, `contrasenia`, `status`) VALUES
-('admin', 'admin', '81dc9bdb52d04dc20036dbd8313ed055', 1),
-('email@email.com', 'Pepe', '81dc9bdb52d04dc20036dbd8313ed055', 1);
+('admin', 'admin', 'MTIzNA==', 0),
+('email@email.com', 'Pepe', 'MTIzNA==', 1);
 
 -- --------------------------------------------------------
 
@@ -125,9 +130,10 @@ CREATE TABLE `materias` (
 INSERT INTO `materias` (`nombre`, `contenidos`, `nivel`, `carga_horaria`, `status`) VALUES
 ('Bases de datos', 'Bases de datos MYSQL ', 'Segundo', 5, 1),
 ('biologia', 'Celulas, aparato respiratorio, disecciÃ³n de lombrices, podologÃ­a de garrapatas', 'Tercero', 8, 1),
-('fisica', 'Leyes de newton, principios de la termodinamica', 'Primero', 22, 1),
+('fisica', 'Leyes de newton, principios de la termodinamica', 'Primero', 22, 0),
 ('Matematica', 'Trigonometrï¿½a, Funciones elementales, Nï¿½meros complejos', 'Segundo', 44, 1),
-('programacion', 'ProgramaciÃ³n php orientado a objetos', 'Tercero', 10, 1);
+('programacion', 'ProgramaciÃ³n php orientado a objetos', 'Tercero', 10, 1),
+('SexologÃ­a', 'ExploraciÃ³n del aparato reproductor masculino.', 'Primero', 40, 1);
 
 -- --------------------------------------------------------
 
@@ -153,7 +159,7 @@ INSERT INTO `profesores` (`ci`, `nombre`, `apellido`, `direccion`, `telefono`, `
 (1234567, 'Danillo', 'Zimermann', 'Leguizamon', 1255478, 1),
 (4305844, 'Damian', 'Acevedo', 'La palma 2327', 99765140, 1),
 (7654321, 'Karl', 'Sanders', 'Wilson Aldunate 1936', 99256256, 1),
-(55889966, 'Enrique', 'AbellÃ¡', '40 Semanas', 256366667, 1);
+(55889966, 'Enrique', 'AbellÃ¡', '40 Semanas', 256366667, 0);
 
 --
 -- Indexes for dumped tables
@@ -197,7 +203,7 @@ ALTER TABLE `profesores`
 -- AUTO_INCREMENT for table `cursos`
 --
 ALTER TABLE `cursos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

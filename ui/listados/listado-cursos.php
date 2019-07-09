@@ -1,4 +1,6 @@
+<span><h3>Listado de cursos.</h3></span>
 <table class="cursos">
+    
     <?php if($isAdmin){ ?>
         <tr>
              <td>
