@@ -29,7 +29,7 @@ class DatabaseConnection{
             $result = $this->parseData($r);
             mysqli_close($conexion);
         }catch(Exception $ex){
-            echo "Ocurrió un error ejecutando el select";
+            echo "Ocurrió un error ejecutando el select".$ex->getMessage();
         }
         return $result;
     }
@@ -45,7 +45,7 @@ class DatabaseConnection{
             
             mysqli_close($conexion);
         }catch(Exception $ex){
-            echo "Ocurrió un error ejecutando el insert";
+            echo "Ocurrió un error ejecutando el insert".$ex->getMessage();
         }
         return $result;
     }
@@ -58,7 +58,7 @@ class DatabaseConnection{
             $result = mysqli_query($conexion, $query);
             mysqli_close($conexion);
         }catch(Exception $ex){
-            echo "Ocurrió un error al eliminar el registro";
+            echo "Ocurrió un error al eliminar el registro".$ex->getMessage();
         }
         return $result;
     }
@@ -70,7 +70,7 @@ class DatabaseConnection{
             $result = mysqli_query($conexion, $query);
             mysqli_close($conexion);
         }catch(Exception $ex){
-            echo "Ocurrió un error actualizando el registro";
+            echo "Ocurrió un error actualizando el registro".$ex->getMessage();
         }
         return $result;
     }
@@ -96,7 +96,7 @@ class DatabaseConnection{
             $result = mysqli_query($conexion, $query);
             mysqli_close($conexion);
         }catch(Exception $ex){
-            echo "Ocurrió un error al desactivar el item";
+            echo "Ocurrió un error al desactivar el item".$ex->getMessage();
         }
         return $result;
     }

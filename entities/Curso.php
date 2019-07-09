@@ -2,12 +2,16 @@
 
 class Curso{
 
+    private $id;
     private $idMateria;
     private $idProfesor;
+    private $status;
 
-    public function __construct($idMateria, $idProfesor){
+    public function __construct($id, $idMateria, $idProfesor){
+        $this->id = $id;
         $this->idMateria = $idMateria;
         $this->idProfesor = $idProfesor;
+        $this->status = 1;
     }
 
     public function __get($atributo) {

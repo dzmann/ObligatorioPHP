@@ -8,9 +8,20 @@
         <title>Document</title>
 </head>
 <header>
-<ul>
-  <li><a href="seccionEncargado.php?section=cursos">ABM Cursos</a></li>
-  <li><a href="seccionEncargado.php?section=alumnos">ABM Alumnos</a></li>
-</ul>
+
+      <ul>
+        <li><a href="seccionEncargado.php?section=cursos">ABM Cursos</a></li>
+        <li><a href="seccionEncargado.php?section=alumnos">ABM Alumnos</a></li>
+        <li><a href="seccionEncargado.php?section=profesores">ABM Profesores</a></li>
+        <li><a href="seccionEncargado.php?section=encargados">ABM Encargados</a></li>
+        <li><a href="seccionEncargado.php?section=materias">ABM Materias</a></li>
+      </ul>
+
+<?php
+        $isAdmin=true;
+        echo "Usuario logueado: <span style='position:relative; right:0'>".$_SESSION["userId"]."</span>";
+        echo "<a onclick='cerrarSesion()' href=#>Salir</a>";
+?>
+</div>
 
 </header>
