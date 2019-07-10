@@ -31,7 +31,7 @@ class Login
 
             if (isset($result[0])) {
 
-                if ($result[0]["CI"] == $user && $result[0]["PIN" == $password]) {
+                if ($result[0]["CI"] == $user && $result[0]["PIN"] == $password) {
                     $isLogged = true;
                 }
             }
