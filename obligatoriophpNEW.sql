@@ -112,6 +112,8 @@ CREATE TABLE `inscripciones` (
   `id_curso` int(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+ALTER TABLE `inscripciones` ADD `id_inscripcion` INT NOT NULL AUTO_INCREMENT FIRST, ADD PRIMARY KEY (`id_inscripcion`);
+
 -- --------------------------------------------------------
 
 --

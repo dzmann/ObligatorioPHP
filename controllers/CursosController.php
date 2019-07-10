@@ -47,7 +47,7 @@ class CursosController
     {
         $dbOperation = new DataBaseOperations();
 
-        $inscipto = $dbOperation->select("inscripciones", "ci_alumno = $inscripcion->ci");
+        $inscipto = $dbOperation->select("inscripciones", "ci_alumno = $inscripcion->ci AND id_curso = $inscripcion->idCurso");
         if (count($inscipto) == 0) {
             $dbOperation->insert($inscripcion);
             return true;
@@ -56,11 +56,13 @@ class CursosController
         }
     }
 
-    public function getCursosByAlumno($ciAlumno)
+    public static function getCursosPorAlumno($ciAlumno)
     {
         $dbOperation = new DataBaseOperations();
 
-        $cursos = $dbOperation->select("cursos, inscripciones", "ci_alumno = $ciAlumno");
+        //SELECT C.id , C.materia , I.ci_alumno FROM cursos C, inscripciones I WHERE I.ci_alumno = 5555 AND I.id_curso = C.id
+        $columns = array("C.id", "C.materia", "I.ci_alumno");
+        $cursos = $dbOperation->select("cursos C, inscripciones I", "I.ci_alumno = $ciAlumno AND I.id_curso = C.id", $columns );
 
         return $cursos;
     }

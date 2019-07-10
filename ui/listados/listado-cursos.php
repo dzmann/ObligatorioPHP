@@ -13,7 +13,7 @@
             <th>Profesor</th>
             <th>Acciones</th>
         </tr>
-    <?php }else{ ?>    
+    <?php } else { ?>    
     <tr>
         <th>Id del curso</th>
         <th>Materia</th>
@@ -36,8 +36,9 @@
             }    
         }else{
             $cursos = $CursosController->getCursos();
+
             foreach ($cursos as $row) {
-                echo "<td>" . $row['id'] . "</td><td>" . $row['materia'] . "</td><td>" . $row['profesor'] . "</td><td><a href='loginalumno.php?idCurso=" . $row['id'] . "'>Inscribirme</a></td>";
+                echo "<tr><td>" . $row['id'] . "</td><td>" . $row['materia'] . "</td><td>" . $row['profesor'] . "</td><td><a href='loginalumno.php?idCurso=" . $row['id'] . "'>Inscribirme</a></td></tr>";
             }
         }
         

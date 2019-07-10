@@ -1,4 +1,6 @@
 <?php
+$idCurso = "";
+
 if (isset($_POST["entrar"])) {
     require_once("../controllers/login.php");
     require_once("../controllers/CursosController.php");
@@ -15,7 +17,7 @@ if (isset($_POST["entrar"])) {
         $inscripcion = new Inscripcion($ciAlumno, $idCurso);
         $insc = CursosController::doInscripcion($inscripcion);
 
-        $cursos = CursosController::getCursosByAlumno($ciAlumno);
+        $cursos = CursosController::getCursosPorAlumno($ciAlumno);
     }
 }
 
@@ -29,17 +31,16 @@ if (isset($_POST["entrar"])) {
             <tr>
                 <th>Id del curso</th>
                 <th>Materia</th>
-                <th>Profesor</th>
-                <th>Inscribirse</th>
             </tr>
             <tr>
                 <?php
                 foreach ($cursos as $row) {
-                    echo "<td>" . $row['id'] . "</td><td>" . $row['materia'] . "</td><td>" . $row['profesor'] . "</td>";
+                    echo "<tr><td>" . $row['id'] . "</td><td>" . $row['materia'] . "</td><td><b>Inscripto</b></td></tr>";
                 }
                 ?>
             </tr>
         </table>
+        <a href="/obligatoriophp/ui/menualumno.php" >Volver</a>
 
     <?php } else if (!$insc && $loginResult) { ?>
 
@@ -48,22 +49,21 @@ if (isset($_POST["entrar"])) {
             <tr>
                 <th>Id del curso</th>
                 <th>Materia</th>
-                <th>Profesor</th>
             </tr>
             <tr>
                 <?php
                 foreach ($cursos as $row) {
-                    echo "<td>" . $row['id'] . "</td><td>" . $row['materia'] . "</td><td>" . $row['profesor'] . "</td>";
+                    echo "<tr><td>" . $row['id'] . "</td><td>" . $row['materia'] . "</td><td><b>Inscripto</b></td></tr>";
                 }
                 ?>
             </tr>
         </table>
-
+        <a href="/obligatoriophp/ui/menualumno.php" >Volver</a>
     <?php } ?>
 
     <?php if (!$loginResult) { ?>
 
         <h2>Usuario o contraseña incorrectos</h2>
-        <a href="/obligatoriophp/ui/loginalumno.php".$idCurso >Volver</a>
+        <a href=<?php echo "/obligatoriophp/ui/loginalumno.php?idCurso=$idCurso"; ?> >Volver</a>
     <?php } ?>
 </div>
