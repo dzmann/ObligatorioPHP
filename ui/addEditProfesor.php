@@ -19,17 +19,15 @@
             $profesor = new Profesor($_POST["cedula"], $_POST["nombre"], $_POST["apellido"], $_POST["direccion"], $_POST["telefono"]);
 
             if($profesoresController->createProfesor($profesor)){
-                $mensaje = "<span style='color:green'>Profesor ingresado correctamente</span>";
+                header('Location: ../controllers/SuccessRegistration.php?type=profesores&operation=create');
             }else{
                 $mensaje = "<span style='color:red'>Ocurrió un error al crear el Profesor</span>";
             }
         }else{
-            
-
             $profesor = new Profesor($_POST["cedula"], $_POST["nombre"], $_POST["apellido"], $_POST["direccion"], $_POST["telefono"]);
             
             if($profesoresController->updateProfesor($profesor)){
-                header('Location: ../controllers/SuccessRegistration.php?type=Profesor&operation=update');
+                header('Location: ../controllers/SuccessRegistration.php?type=profesores&operation=update');
             }else{
                 $mensaje = "<span style='color:red'>Ocurrió un error actualizando los datos</span>";
             }

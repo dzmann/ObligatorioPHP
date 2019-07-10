@@ -19,7 +19,7 @@
             $encargado = new Encargado($_POST["email"], $_POST["nombre"], base64_encode($_POST["contrasenia"]));
 
             if($encargadosController->createEncargado($encargado)){
-                $mensaje = "<span style='color:green'>Encargado ingresado correctamente</span>";
+                header('Location: ../controllers/SuccessRegistration.php?type=encargados&operation=create');
             }else{
                 $mensaje = "<span style='color:red'>Ocurrió un error al crear el Encargado</span>";
             }
@@ -27,7 +27,7 @@
             $encargado = new Encargado($_POST["email"], $_POST["nombre"], base64_encode($_POST["contrasenia"]));
 
             if($encargadosController->updateEncargado($encargado)){
-                $mensaje = "<span style='color:green'>Datos actualizados</span>";
+                header('Location: ../controllers/SuccessRegistration.php?type=encargados&operation=update');
             }else{
                 $mensaje = "<span style='color:red'>Ocurrió un error actualizando los datos</span>";
             }
