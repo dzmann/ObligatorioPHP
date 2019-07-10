@@ -30,7 +30,7 @@
             $curso = new Curso($_POST["id"], $_POST["materia"], $_POST["profesor"]);
             
             if($cursosController->updateCurso($curso)){
-                $mensaje = "<span style='color:green'>Datos actualizados</span>";
+                header('Location: ../controllers/SuccessRegistration.php?type=Curso&operation=update');
             }else{
                 $mensaje = "<span style='color:red'>Ocurrió un error actualizando los datos</span>";
             }

@@ -28,7 +28,7 @@
             $materia = new Materia($_POST["nombre"], $_POST["contenidos"], $_POST["nivel"], $_POST["carga_horaria"]);
             
             if($materiasController->updateMateria($materia)){
-                $mensaje = "<span style='color:green'>Datos actualizados</span>";
+                header('Location: ../controllers/SuccessRegistration.php?type=Materia&operation=update');
             }else{
                 $mensaje = "<span style='color:red'>Ocurrió un error actualizando los datos</span>";
             }

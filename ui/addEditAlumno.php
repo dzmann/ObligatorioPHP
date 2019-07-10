@@ -39,7 +39,7 @@
             }
             
             if($alumnoController->updateAlumno($alumno)){
-                $mensaje = "<span style='color:green'>Datos actualizados</span>";
+                header('Location: ../controllers/SuccessRegistration.php?type=Alumno&operation=update');
             }else{
                 $mensaje = "<span style='color:red'>Ocurrió un erro actualizando los datos</span>";
             }

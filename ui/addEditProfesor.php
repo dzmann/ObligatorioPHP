@@ -29,7 +29,7 @@
             $profesor = new Profesor($_POST["cedula"], $_POST["nombre"], $_POST["apellido"], $_POST["direccion"], $_POST["telefono"]);
             
             if($profesoresController->updateProfesor($profesor)){
-                $mensaje = "<span style='color:green'>Datos actualizados</span>";
+                header('Location: ../controllers/SuccessRegistration.php?type=Profesor&operation=update');
             }else{
                 $mensaje = "<span style='color:red'>Ocurrió un error actualizando los datos</span>";
             }
