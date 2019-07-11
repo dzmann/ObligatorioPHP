@@ -15,8 +15,13 @@ class EncargadosController
     public function getEncargado($id){
         $dbOperation = new DataBaseOperations();
         $encargado = $dbOperation->select("encargados", "email='$id'");
-
-        $encargadoObj = new Encargado($encargado[0]["email"], $encargado[0]["nombre"], $encargado[0]["contrasenia"], $encargado[0]["status"]);
+        
+        if($encargado!=null){
+            $encargadoObj = new Encargado($encargado[0]["email"], $encargado[0]["nombre"], $encargado[0]["contrasenia"], $encargado[0]["status"]);
+        }else{
+            $encargadoObj = null;
+        }
+        
         return $encargadoObj;
     }
 

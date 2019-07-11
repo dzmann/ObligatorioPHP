@@ -29,6 +29,7 @@
             $al = $alumnoController->getAlumno($_POST["ci"]);
 
             if($al==null){
+                $alumno = new Alumno($_POST["ci"], $_POST["nombres"], $_POST["apellidos"], $_POST["direccion"], $_POST["telefono"], $_FILES["foto"]["name"], $_POST["pin"]);
                 if($alumnoController->createAlumno($alumno) && $isImageUploaded){
                     header('Location: ../controllers/SuccessRegistration.php?type=alumnos&operation=create');
                 }else{
@@ -39,7 +40,7 @@
             }   
 
             //Se crea una instancia del alumno con los datos del formulario para luego persistirlo usando el controlador.
-            $alumno = new Alumno($_POST["ci"], $_POST["nombres"], $_POST["apellidos"], $_POST["direccion"], $_POST["telefono"], $_FILES["foto"]["name"], $_POST["pin"]);
+            
 
             
 

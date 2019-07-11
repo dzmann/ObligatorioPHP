@@ -16,7 +16,12 @@ class ProfesoresController
         $dbOperation = new DataBaseOperations();
         $profesor = $dbOperation->select("profesores", "ci=$id");
 
-        $profesorObj = new Profesor($profesor[0]["ci"], $profesor[0]["nombre"], $profesor[0]["apellido"], $profesor[0]["direccion"], $profesor[0]["telefono"]);
+        if($profesor != null){
+            $profesorObj = new Profesor($profesor[0]["ci"], $profesor[0]["nombre"], $profesor[0]["apellido"], $profesor[0]["direccion"], $profesor[0]["telefono"]);
+        }else{
+            $profesorObj = null;
+        }
+        
         return $profesorObj;
     }
 

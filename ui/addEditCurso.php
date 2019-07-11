@@ -19,13 +19,19 @@
 
         if($_POST["mode"]=="create"){
             
-            $curso = new Curso(null, $_POST["materia"], $_POST["profesor"]);
+            $cu = $cursosController->getCurso($_POST["materia"])
 
-            if($cursosController->createCurso($curso)){
-                header('Location: ../controllers/SuccessRegistration.php?type=cursos&operation=create');
+            if($curso==null){
+                if($cursosController->createCurso($curso)){
+                    $curso = new Curso(null, $_POST["materia"], $_POST["profesor"]);
+                    header('Location: ../controllers/SuccessRegistration.php?type=cursos&operation=create');
+                }else{
+                    $mensaje = "<span style='color:red'>ERROR: Ocurrió un error al crear el curso</span>";
+                }
             }else{
-                $mensaje = "<span style='color:red'>Ocurrió un error al crear el curso</span>";
+                $mensaje = "<span style='color:red'>ERROR: La materia ingresada ya existe.</span>";  
             }
+
         }else{
             $curso = new Curso($_POST["id"], $_POST["materia"], $_POST["profesor"]);
             

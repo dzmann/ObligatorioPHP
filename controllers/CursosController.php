@@ -15,8 +15,13 @@ class CursosController
     public function getCurso($id){
         $dbOperation = new DataBaseOperations();
         $curso = $dbOperation->select("cursos", "id=$id");
-
-        $cursoObj = new Curso($curso[0]["id"], $curso[0]["materia"], $curso[0]["profesor"]);
+        
+        if($curos!=null){
+            $cursoObj = new Curso($curso[0]["id"], $curso[0]["materia"], $curso[0]["profesor"]);
+        }else{
+            $cursoObj= null;
+        }
+       
         return $cursoObj;
     }
 
