@@ -15,14 +15,32 @@ class CursosController
     public function getCurso($id){
         $dbOperation = new DataBaseOperations();
         $curso = $dbOperation->select("cursos", "id=$id");
-
-        $cursoObj = new Curso($curso[0]["id"], $curso[0]["materia"], $curso[0]["profesor"]);
+        
+        if($curso!=null){
+            $cursoObj = new Curso($curso[0]["id"], $curso[0]["materia"], $curso[0]["profesor"]);
+        }else{
+            $cursoObj= null;
+        }
+       
         return $cursoObj;
     }
 
     public function createCurso($curso){
         $dbOperation = new DataBaseOperations();
         return $dbOperation->insert($curso);
+    }
+
+    public function getCursoConMateriaProfesor($materia, $profesor){
+        $dbOperation = new DataBaseOperations();
+        $curso = $dbOperation->select("cursos", "materia='$materia' AND profesor=$profesor");
+        $cursoObj= null;
+        
+        if($curso!=null){
+            $cursoObj = new Curso($curso[0]["id"], $curso[0]["materia"], $curso[0]["profesor"]);
+        }
+       
+        return $cursoObj;
+
     }
 
     public function updateCurso($curso){

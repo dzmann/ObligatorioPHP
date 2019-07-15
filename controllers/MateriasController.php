@@ -15,7 +15,13 @@ class MateriasController
     public function getMateria($id){
         $dbOperation = new DataBaseOperations();
         $materia = $dbOperation->select("materias", "nombre='$id'");
-        $materiaObj = new Materia($materia[0]["nombre"], $materia[0]["contenidos"], $materia[0]["nivel"], $materia[0]["carga_horaria"]);
+
+        if($materia != null){
+            $materiaObj = new Materia($materia[0]["nombre"], $materia[0]["contenidos"], $materia[0]["nivel"], $materia[0]["carga_horaria"]);
+        }else{
+            $materiaObj = null;
+        }
+        
         return $materiaObj;
     }
 
