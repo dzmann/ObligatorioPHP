@@ -16,29 +16,31 @@
     $mensaje = "";
 
     if(isset($_POST["enviar"])){
+        $cu = $cursosController->getCursoConMateriaProfesor($_POST["materia"], $_POST["profesor"]);    
 
         if($_POST["mode"]=="create"){
             
-            $cu = $cursosController->getCurso($_POST["materia"])
-
-            if($curso==null){
+            if($cu==null){
+                $curso = new Curso(null, $_POST["materia"], $_POST["profesor"]);
                 if($cursosController->createCurso($curso)){
-                    $curso = new Curso(null, $_POST["materia"], $_POST["profesor"]);
                     header('Location: ../controllers/SuccessRegistration.php?type=cursos&operation=create');
                 }else{
                     $mensaje = "<span style='color:red'>ERROR: Ocurrió un error al crear el curso</span>";
                 }
             }else{
-                $mensaje = "<span style='color:red'>ERROR: La materia ingresada ya existe.</span>";  
+                $mensaje = "<span style='color:red'>ERROR: El curso ya se encuentra registrado.</span>";  
             }
 
         }else{
-            $curso = new Curso($_POST["id"], $_POST["materia"], $_POST["profesor"]);
-            
-            if($cursosController->updateCurso($curso)){
-                header('Location: ../controllers/SuccessRegistration.php?type=cursos&operation=update');
+            if($cu==null){
+                $curso = new Curso($_POST["id"], $_POST["materia"], $_POST["profesor"]);
+                if($cursosController->updateCurso($curso)){
+                    header('Location: ../controllers/SuccessRegistration.php?type=cursos&operation=update');
+                }else{
+                    $mensaje = "<span style='color:red'>Ocurrió un error actualizando los datos</span>";
+                }
             }else{
-                $mensaje = "<span style='color:red'>Ocurrió un error actualizando los datos</span>";
+                $mensaje = "<span style='color:red'>ERROR: El curso ya se encuentra registrado.</span>";  
             }
         }
 

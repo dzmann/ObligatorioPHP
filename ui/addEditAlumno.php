@@ -17,19 +17,19 @@
     $imageError = "";
 
     if(isset($_POST["enviar"])){
-
+        $al = $alumnoController->getAlumno($_POST["ci"]);
         if($_POST["mode"]=="create"){
             //Se accede de manera estática al método y envío el nombre del campo del formulario como parámetro.
-            $isImageUploaded = FileUploader::uploadImage("foto");
-
-            if(!$isImageUploaded){
-                $imageError = " Ocurrió un error al cargar la imagen.";
-            }
-
-            $al = $alumnoController->getAlumno($_POST["ci"]);
-
+           
             if($al==null){
-                $alumno = new Alumno($_POST["ci"], $_POST["nombres"], $_POST["apellidos"], $_POST["direccion"], $_POST["telefono"], $_FILES["foto"]["name"], $_POST["pin"]);
+
+                $isImageUploaded = FileUploader::uploadImage("foto");
+
+                if(!$isImageUploaded){
+                    $imageError = " Ocurrió un error al cargar la imagen.";
+                }
+
+                $alumno = new Alumno($_POST["ci"], $_POST["nombres"], $_POST["apellidos"], $_POST["direccion"], $_POST["telefono"], $_FILES["foto"]["name"],$_POST["pin"]);
                 if($alumnoController->createAlumno($alumno) && $isImageUploaded){
                     header('Location: ../controllers/SuccessRegistration.php?type=alumnos&operation=create');
                 }else{
@@ -40,17 +40,14 @@
             }   
 
             //Se crea una instancia del alumno con los datos del formulario para luego persistirlo usando el controlador.
-            
-
-            
-
+        
         }else{
             //Se crea una instancia del alumno con los datos del formulario para luego persistirlo usando el controlador.
 
             if(FileUploader::uploadImage("foto")){
-                $alumno = new Alumno($_POST["ci"], $_POST["nombres"], $_POST["apellidos"], $_POST["direccion"], $_POST["telefono"], $_FILES["foto"]["name"], $_POST["pin"]);
+                $alumno = new Alumno($_POST["ci"], $_POST["nombres"], $_POST["apellidos"], $_POST["direccion"], $_POST["telefono"], $_FILES["foto"]["name"],$_POST["pin"]);
             }else{
-                $alumno = new Alumno($_POST["ci"], $_POST["nombres"], $_POST["apellidos"], $_POST["direccion"], $_POST["telefono"], $_POST["hiddenFoto"], $_POST["pin"]);
+                $alumno = new Alumno($_POST["ci"], $_POST["nombres"], $_POST["apellidos"], $_POST["direccion"], $_POST["telefono"], $_POST["hiddenFoto"],$_POST["pin"]);
             }
             
             if($alumnoController->updateAlumno($alumno)){
