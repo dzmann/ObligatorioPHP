@@ -35,12 +35,19 @@
     }else{
         $cursos = $CursosController->getCursos();
 
-        foreach ($cursos as $row) {
-            echo "<tr><td>" . $row['id'] . "</td><td>" . $row['materia'] . "</td><td>" . $row['profesor'] . "</td><td><a href='loginalumno.php?idCurso=" . $row['id'] . "'>Inscribirme</a></td></tr>";
+            foreach ($cursos as $row) {
+                echo "<tr><td>" . $row['id'] . "</td><td>" . $row['materia'] . "</td><td>" . $row['profesor'] . "</td><td><a href='loginalumno.php?idCurso=" . $row['id'] . "'>Inscribirme</a></td></tr>";
+            }
+            
         }
-    }
     
 
     ?>
+
+        ?>
+    </tr>
+    <tr>
+    <td><a href='../index.php'><button>Volver</button></a></td>
+    </tr>
 
 </table>

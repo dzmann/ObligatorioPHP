@@ -16,20 +16,25 @@
 
         if($_POST["mode"]=="create"){
             
-            $profesor = new Profesor($_POST["cedula"], $_POST["nombre"], $_POST["apellido"], $_POST["direccion"], $_POST["telefono"]);
-
-            if($profesoresController->createProfesor($profesor)){
-                $mensaje = "<span style='color:green'>Profesor ingresado correctamente</span>";
-            }else{
-                $mensaje = "<span style='color:red'>Ocurrió un error al crear el Profesor</span>";
-            }
-        }else{
+            $pro = $profesoresController->getProfesor($_POST["cedula"]);
             
+            if($pro == null){
+                $profesor = new Profesor($_POST["cedula"], $_POST["nombre"], $_POST["apellido"], $_POST["direccion"], $_POST["telefono"]);
 
+                if($profesoresController->createProfesor($profesor)){
+                    header('Location: ../controllers/SuccessRegistration.php?type=profesores&operation=create');
+                }else{
+                    $mensaje = "<span style='color:red'>ERROR: Ocurrió un error al crear el Profesor</span>";
+                }     
+            }else{
+                $mensaje = "<span style='color:red'>ERROR: La cédula ingresada ya existe.</span>";  
+            }
+            
+        }else{
             $profesor = new Profesor($_POST["cedula"], $_POST["nombre"], $_POST["apellido"], $_POST["direccion"], $_POST["telefono"]);
             
             if($profesoresController->updateProfesor($profesor)){
-                $mensaje = "<span style='color:green'>Datos actualizados</span>";
+                header('Location: ../controllers/SuccessRegistration.php?type=profesores&operation=update');
             }else{
                 $mensaje = "<span style='color:red'>Ocurrió un error actualizando los datos</span>";
             }
