@@ -10,19 +10,10 @@
 </head>
 
 <body>
-    <!-- TODO: Landing con los dos perfiles -->
     <?php
-
-    //if hay session -> mandar a main else landing
-
-
     require_once "./utils/Constants.php";
     include_once "./ui/landing.php";
-    
-
-
-
-    ?>
+?>
 
 </body>
 

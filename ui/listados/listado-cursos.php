@@ -1,3 +1,4 @@
+<div class="menu-alumno">
 <span><h3>Listado de cursos.</h3></span>
 <table class="cursos">
     
@@ -7,14 +8,14 @@
                   <a href="seccionEncargado.php?mode=create&section=addEditCurso"><button>Agregar nuevo</button></a>
              </td>
          </tr>
-        <tr>
+        <tr class="heading">
             <th>Id del curso</th>
             <th>Materia</th>
             <th>Profesor</th>
             <th>Acciones</th>
         </tr>
     <?php } else { ?>    
-    <tr>
+    <tr class="heading"> 
         <th>Id del curso</th>
         <th>Materia</th>
         <th>Profesor</th>
@@ -38,7 +39,7 @@
             $cursos = $CursosController->getCursos();
 
             foreach ($cursos as $row) {
-                echo "<tr><td>" . $row['id'] . "</td><td>" . $row['materia'] . "</td><td>" . $row['profesor'] . "</td><td><a href='loginalumno.php?idCurso=" . $row['id'] . "'>Inscribirme</a></td></tr>";
+                echo "<tr><td>" . $row['id'] . "</td><td>" . $row['materia'] . "</td><td>" . $row['profesor'] . "</td><td class='inscribir'><a href='loginalumno.php?idCurso=" . $row['id'] . "'>Inscribirme</a></td></tr>";
             }
             
         }
@@ -51,3 +52,4 @@
     </tr>
 
 </table>
+</div>
