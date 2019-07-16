@@ -48,34 +48,39 @@ h3 {
   color: #333333;
 }
 
-.cursos {
+.listado-cursos{
+    display: flex;
+    justify-content: center;
+}
+
+.listado {
   border-radius: 3px;
   padding: 10px;
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
 }
 
-.cursos th,
-.cursos td {
+.listado th,
+.listado td {
   text-align: center;
 }
 
-.cursos td {
+.listado td {
   padding: 10px;
 }
 
-.cursos .heading {
+.listado .heading {
   height: 40px;
 }
 
-.cursos .inscribir {
+.listado .inscribir {
   background-color: #a2ffb6;
 }
 
-.cursos .inscribir:hover {
+.listado .inscribir:hover {
   background-color: #6cff8c;
 }
 
-.cursos button, input[type=submit]{
+.listado button, input[type=submit]{
   background-color: #2043e0;
   border: none;
   padding: 10px;
@@ -84,7 +89,7 @@ h3 {
   color: #ffffff;
 }
 
-.cursos button:hover, input[type=submit]:hover {
+.listado button:hover, input[type=submit]:hover {
   background-color: #0027d6;
 }
 
@@ -153,4 +158,9 @@ header .header-exit{
 
 header .header-exit:hover{
     background-color: #ca0f0f;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
 }

@@ -1,6 +1,6 @@
-<div class="menu-alumno">
+
 <span><h3>Listado de cursos.</h3></span>
-<table class="cursos">
+<table class="listado">
     
     <?php if($isAdmin){ ?>
         <tr>
@@ -52,4 +52,4 @@
     </tr>
 
 </table>
-</div>
+
